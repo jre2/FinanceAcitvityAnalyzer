@@ -1,0 +1,23 @@
+Name:                finance-analyzer
+Version:             0.1
+Synopsis:            Library and tool for analyzing bank account activity
+   Library for parsing activty from your bank account (currently only Chase) and
+   tagging your income/expenses according to regex rules, and then analyzing
+   them with an interactive program (via ghci).
+Homepage:            git://github.com/jre2/FinanceAcitvityAnalyzer.git
+License:             BSD3
+License-file:        LICENSE
+Author:              Joseph Re
+Maintainer:          overture2112@gmail.com
+Category:            Finance
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Data-files:          examples/rules examples/chase.csv
+Library
+   Exposed-modules:  Data.Chase.Activity, Finance.Activity
+   Build-depends:    base >= 4, old-locale >= 1, pcre-light >= 0.4, csv >= 0.1, time >= 1.1, bytestring >= 0.9, tagging >= 0.1, split >= 0.1
+
+Executable fai
+   main-is:          Fai.hs
+   other-modules:    Data.Chase.Activity, Finance.Activity
